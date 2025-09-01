@@ -24,19 +24,12 @@
     <div class='explanation' id='explanation'></div>
 
     <script>
-        const questions = [
-            { word: "hu_et", options: ["hutet", "huttet"], correct: "huttet", explanation: "Kort vokal → dubbelteckning" },
-            { word: "gla_", options: ["glad", "gladd"], correct: "glad", explanation: "Lång vokal → enkel konsonant" },
-            { word: "ski_a", options: ["skina", "skinna"], correct: "skina", explanation: "Lång vokal → enkel konsonant" },
-            { word: "stu_en", options: ["stulen", "stullen"], correct: "stulen", explanation: "Lång vokal → enkel konsonant" },
-            { word: "kla_", options: ["klad", "kladd"], correct: "kladd", explanation: "Kort vokal → dubbelteckning" }
-        ];
-
+        const questions = [{"word": "kla_", "options": ["klad", "kladd"], "correct": "kladd", "explanation": "Kort vokal → dubbelteckning"}, {"word": "gla_", "options": ["glad", "gladd"], "correct": "glad", "explanation": "Lång vokal → enkel konsonant"}, {"word": "ski_a", "options": ["skina", "skinna"], "correct": "skina", "explanation": "Lång vokal → enkel konsonant"}, {"word": "stu_en", "options": ["stulen", "stullen"], "correct": "stulen", "explanation": "Lång vokal → enkel konsonant"}, {"word": "hop_a", "options": ["hoppa", "hopa"], "correct": "hoppa", "explanation": "Kort vokal → dubbelteckning"}, {"word": "ri_a", "options": ["rinna", "rina"], "correct": "rinna", "explanation": "Kort vokal → dubbelteckning"}, {"word": "ska_a", "options": ["skala", "skalla"], "correct": "skala", "explanation": "Lång vokal → enkel konsonant"}, {"word": "spi_a", "options": ["spilla", "spila"], "correct": "spilla", "explanation": "Kort vokal → dubbelteckning"}];
         let current = 0;
 
         function loadQuestion() {
             const q = questions[current];
-            document.getElementById('question').innerText = `Vad är rätt stavning: ${q.word.replace('_', '___')} ?`;
+            document.getElementById('question').innerText = "Vad är rätt stavning: " + q.word.replace('_', '___') + " ?";
             document.getElementById('option1').innerText = q.options[0];
             document.getElementById('option2').innerText = q.options[1];
             document.getElementById('feedback').innerText = "";
