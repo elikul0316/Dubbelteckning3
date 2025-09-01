@@ -3,7 +3,7 @@
 <html lang='sv'>
 <head>
     <meta charset='UTF-8'>
-    <title>Dubbelteckningsträning</title>
+    <title>Dubbelteckning i meningar</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
         .question { font-size: 24px; margin: 20px; }
@@ -13,8 +13,8 @@
     </style>
 </head>
 <body>
-    <h1>Öva på dubbelteckning!</h1>
-    <p>Välj det ord som är rättstavat. Tänk på regeln: <strong>Kort vokal → dubbel konsonant</strong>, <strong>Lång vokal → enkel konsonant</strong>.</p>
+    <h1>Dubbelteckning i meningar</h1>
+    <p>Välj det ord som passar i meningen och är rättstavat. Tänk på regeln: <strong>Kort vokal → dubbel konsonant</strong>, <strong>Lång vokal → enkel konsonant</strong>.</p>
     <div class='question' id='question'></div>
     <div class='options'>
         <button onclick='checkAnswer(this)' id='option1'></button>
@@ -24,12 +24,12 @@
     <div class='explanation' id='explanation'></div>
 
     <script>
-        const questions = [{"word": "kla_", "options": ["klad", "kladd"], "correct": "kladd", "explanation": "Kort vokal → dubbelteckning"}, {"word": "gla_", "options": ["glad", "gladd"], "correct": "glad", "explanation": "Lång vokal → enkel konsonant"}, {"word": "ski_a", "options": ["skina", "skinna"], "correct": "skina", "explanation": "Lång vokal → enkel konsonant"}, {"word": "stu_en", "options": ["stulen", "stullen"], "correct": "stulen", "explanation": "Lång vokal → enkel konsonant"}, {"word": "hop_a", "options": ["hoppa", "hopa"], "correct": "hoppa", "explanation": "Kort vokal → dubbelteckning"}, {"word": "ri_a", "options": ["rinna", "rina"], "correct": "rinna", "explanation": "Kort vokal → dubbelteckning"}, {"word": "ska_a", "options": ["skala", "skalla"], "correct": "skala", "explanation": "Lång vokal → enkel konsonant"}, {"word": "spi_a", "options": ["spilla", "spila"], "correct": "spilla", "explanation": "Kort vokal → dubbelteckning"}];
+        const questions = [{"sentence": "Barnen _ på studsmattan.", "options": ["hopar", "hoppar"], "correct": "hoppar", "explanation": "Kort vokal → dubbelteckning"}, {"sentence": "Hon _ sin nya tröja.", "options": ["visar", "vissar"], "correct": "visar", "explanation": "Lång vokal → enkel konsonant"}, {"sentence": "De _ i vattnet.", "options": ["rinner", "riner"], "correct": "rinner", "explanation": "Kort vokal → dubbelteckning"}, {"sentence": "Han _ på stolen.", "options": ["sitter", "siter"], "correct": "sitter", "explanation": "Kort vokal → dubbelteckning"}, {"sentence": "Vi _ på en lösning.", "options": ["tänker", "tänkker"], "correct": "tänker", "explanation": "Lång vokal → enkel konsonant"}, {"sentence": "Katten _ på soffan.", "options": ["ligger", "liger"], "correct": "ligger", "explanation": "Kort vokal → dubbelteckning"}, {"sentence": "De _ på dörren.", "options": ["knackar", "knakkar"], "correct": "knackar", "explanation": "Kort vokal → enkel konsonant"}, {"sentence": "Han _ sin cykel.", "options": ["lagar", "laggar"], "correct": "lagar", "explanation": "Lång vokal → enkel konsonant"}, {"sentence": "Barnen _ högt.", "options": ["skrattar", "skratar"], "correct": "skrattar", "explanation": "Kort vokal → dubbelteckning"}, {"sentence": "Hon _ på sin vän.", "options": ["ropar", "roppar"], "correct": "ropar", "explanation": "Lång vokal → enkel konsonant"}, {"sentence": "Vi _ på bussen.", "options": ["väntar", "vänttar"], "correct": "väntar", "explanation": "Kort vokal → enkel konsonant"}, {"sentence": "Han _ sin bok.", "options": ["läser", "lässar"], "correct": "läser", "explanation": "Lång vokal → enkel konsonant"}, {"sentence": "De _ till musiken.", "options": ["dansar", "danssar"], "correct": "dansar", "explanation": "Kort vokal → enkel konsonant"}, {"sentence": "Kvinnan _ på golvet.", "options": ["ramlar", "rammlar"], "correct": "ramlar", "explanation": "Kort vokal → enkel konsonant"}, {"sentence": "Han _ på frågan.", "options": ["svarar", "svarrar"], "correct": "svarar", "explanation": "Lång vokal → enkel konsonant"}, {"sentence": "Barnen _ med bollen.", "options": ["leker", "lekker"], "correct": "leker", "explanation": "Lång vokal → enkel konsonant"}, {"sentence": "Hon _ på sin stol.", "options": ["sitter", "siter"], "correct": "sitter", "explanation": "Kort vokal → dubbelteckning"}, {"sentence": "Han _ sin jacka.", "options": ["tar", "tarr"], "correct": "tar", "explanation": "Lång vokal → enkel konsonant"}, {"sentence": "De _ på lektionen.", "options": ["lyssnar", "lysssnar"], "correct": "lyssnar", "explanation": "Kort vokal → dubbelteckning"}, {"sentence": "Katten _ mjukt.", "options": ["spinner", "spiner"], "correct": "spinner", "explanation": "Kort vokal → dubbelteckning"}, {"sentence": "Hon _ sin vän.", "options": ["kramar", "krammar"], "correct": "kramar", "explanation": "Lång vokal → enkel konsonant"}, {"sentence": "Barnen _ i parken.", "options": ["leker", "lekker"], "correct": "leker", "explanation": "Lång vokal → enkel konsonant"}, {"sentence": "Han _ på sin mobil.", "options": ["tittar", "titttar"], "correct": "tittar", "explanation": "Kort vokal → dubbelteckning"}, {"sentence": "Vi _ på filmen.", "options": ["skrattar", "skratar"], "correct": "skrattar", "explanation": "Kort vokal → dubbelteckning"}, {"sentence": "Hon _ på sin bok.", "options": ["läser", "lässar"], "correct": "läser", "explanation": "Lång vokal → enkel konsonant"}, {"sentence": "Han _ sin tröja.", "options": ["hänger", "henger"], "correct": "hänger", "explanation": "Lång vokal → enkel konsonant"}, {"sentence": "Barnen _ med kritor.", "options": ["ritar", "rittar"], "correct": "ritar", "explanation": "Lång vokal → enkel konsonant"}, {"sentence": "Hon _ på stolen.", "options": ["sitter", "siter"], "correct": "sitter", "explanation": "Kort vokal → dubbelteckning"}, {"sentence": "Vi _ på dörren.", "options": ["knackar", "knakkar"], "correct": "knackar", "explanation": "Kort vokal → enkel konsonant"}, {"sentence": "Han _ sin bok.", "options": ["läser", "lässar"], "correct": "läser", "explanation": "Lång vokal → enkel konsonant"}];
         let current = 0;
 
         function loadQuestion() {
             const q = questions[current];
-            document.getElementById('question').innerText = "Vad är rätt stavning: " + q.word.replace('_', '___') + " ?";
+            document.getElementById('question').innerText = q.sentence.replace('_', '_____');
             document.getElementById('option1').innerText = q.options[0];
             document.getElementById('option2').innerText = q.options[1];
             document.getElementById('feedback').innerText = "";
