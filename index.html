@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang='sv'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Dubbelteckningsträning</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .question { font-size: 24px; margin: 20px; }
+        .options button { font-size: 20px; margin: 10px; padding: 10px 20px; }
+        .feedback { font-size: 20px; margin-top: 20px; }
+        .explanation { font-size: 18px; margin-top: 10px; color: #555; }
+    </style>
+</head>
+<body>
+    <h1>Öva på dubbelteckning!</h1>
+    <p>Välj det ord som är rättstavat. Tänk på regeln: <strong>Kort vokal → dubbel konsonant</strong>, <strong>Lång vokal → enkel konsonant</strong>.</p>
+    <div class='question' id='question'></div>
+    <div class='options'>
+        <button onclick='checkAnswer(this)' id='option1'></button>
+        <button onclick='checkAnswer(this)' id='option2'></button>
+    </div>
+    <div class='feedback' id='feedback'></div>
+    <div class='explanation' id='explanation'></div>
+
+    <script>
+        const questions = [
+            { word: "hu_et", options: ["hutet", "huttet"], correct: "huttet", explanation: "Kort vokal → dubbelteckning" },
+            { word: "gla_", options: ["glad", "gladd"], correct: "glad", explanation: "Lång vokal → enkel konsonant" },
+            { word: "ski_a", options: ["skina", "skinna"], correct: "skina", explanation: "Lång vokal → enkel konsonant" },
+            { word: "stu_en", options: ["stulen", "stullen"], correct: "stulen", explanation: "Lång vokal → enkel konsonant" },
+            { word: "kla_", options: ["klad", "kladd"], correct: "kladd", explanation: "Kort vokal → dubbelteckning" }
+        ];
+
+        let current = 0;
+
+        function loadQuestion() {
+            const q = questions[current];
+            document.getElementById('question').innerText = `Vad är rätt stavning: ${q.word.replace('_', '___')} ?`;
+            document.getElementById('option1').innerText = q.options[0];
+            document.getElementById('option2').innerText = q.options[1];
+            document.getElementById('feedback').innerText = "";
+            document.getElementById('explanation').innerText = "";
+        }
+
+        function checkAnswer(button) {
+            const answer = button.innerText;
+            const q = questions[current];
+            if (answer === q.correct) {
+                document.getElementById('feedback').innerText = "Rätt svar! Bra jobbat!";
+                document.getElementById('explanation').innerText = q.explanation;
+            } else {
+                document.getElementById('feedback').innerText = "Fel svar. Försök igen!";
+                document.getElementById('explanation').innerText = q.explanation;
+            }
+            current = (current + 1) % questions.length;
+            setTimeout(loadQuestion, 3000);
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
